@@ -8,19 +8,25 @@ const state = {
 function renderList() {
   // target the log-list class
   // be sure to check for errors
-  // Your code here
+  const log = document.querySelector('#log-list');
+  if (!log) {
+    return;
+  }
 
   // This code add a new entry to the log card
   // use the <li> tag
   if (state.count >= 1) {
-    log.innerHTML += ____________________________;
+    log.innerHTML += `<li>Count changed to ${state.count}</li>`;
   }
 }
 
 function renderProgress() {
   // target the progress-fill class
   // be sure to check for errors
-  // Your code here
+  const progress = document.querySelector('#progress-fill');
+  if (!progress) {
+    return;
+  }
 
   // This code chages the progress bar. Nothing to do here
   progress.style.width = `${state.count}%`;
@@ -40,8 +46,8 @@ function renderDisplay() {
 // component's render function is called
 function render() {
   renderList();
-  //  _______________
-  //  _______________
+  renderProgress();
+  renderDisplay();
 }
 
 emitter.on("count:changed", (count) => {
